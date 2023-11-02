@@ -10,6 +10,8 @@ function my_theme_setup() {
 }
 add_action( 'after_setup_theme', 'my_theme_setup' );
 
+/*cho tuy chinh hinh dai dien cho post*/
+add_theme_support( 'post-thumbnails' );
 
 function add_additional_class_on_a($classes, $item, $args)
 {

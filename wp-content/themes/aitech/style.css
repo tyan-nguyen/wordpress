@@ -76,3 +76,19 @@
 .footer-menu ul li{
 	list-style-type: none;
 }
+
+/*seach*/
+#search-input {
+    color:white;
+}
+.search-outside #search-input {
+    color: black;
+}
+.search-outside .border-light {
+    border-color: var(--primary) !important;
+}
+.search-outside .btn-light {
+    color: white !important;
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+}

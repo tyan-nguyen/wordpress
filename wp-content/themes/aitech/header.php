@@ -161,27 +161,7 @@ function searchArr($array, $key, $value)
     <!-- Navbar End -->
 
 
-    <!-- Hero Start -->
-    <div class="container-fluid pt-5 bg-primary hero-header">
-        <div class="container pt-5">
-            <div class="row g-5 pt-5">
-                <div class="col-lg-6 align-self-center text-center text-lg-start mb-lg-5">
-                    <h1 class="display-4 text-white mb-4 animated slideInRight">Our Team</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center justify-content-lg-start mb-0">
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Our Team</li>
-                        </ol>
-                    </nav>
-                </div>
-                <div class="col-lg-6 align-self-end text-center text-lg-end">
-                    <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/hero-img.png" alt="" style="max-height: 300px;">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Hero End -->
+   
     
     <!-- Full Screen Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1">
@@ -196,6 +176,7 @@ function searchArr($array, $key, $value)
                         <div class="input-group" style="max-width: 600px;margin:0 auto;">
                         
                             <input type="search" name="s" id="search-input" value="<?php echo esc_attr( get_search_query() ); ?>" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
+                            <input type="hidden" name="post_type" value="post" />
                             <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
                         </div>
                     </form>
