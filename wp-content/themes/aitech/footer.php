@@ -1,9 +1,3 @@
-<?php 
-$heading1 = get_field('footer_menu_1_heading');
-$heading2 = get_field('footer_menu2_title');
-
-
-?>
     <!-- Footer Start -->
     <div class="container-fluid bg-dark text-white-50 footer pt-5">
         <div class="container py-5">
@@ -30,50 +24,26 @@ $heading2 = get_field('footer_menu2_title');
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
-                    <h5 class="text-white mb-4"><?php echo $heading1; ?></h5>
-                    
+                    <h5 class="text-white mb-4"><?php echo get_option("footer_menu_1_heading") ?></h5>                    
                     <?php
                           wp_nav_menu( array(
                                'theme_location'  => 'menu-footer1',//location in functions
-                               'container'    => 'div',//nav
-                               'container_class'  => 'footer-menu',//nav
-                                'add_a_class'     => 'btn btn-link',
-                               //'menu_class'    => 'menu__list',//ul
-                               //additional add in functions php
-                               /* 'list_item_class'   => 'menu__item',//li
-                               'link_class'        => 'menu__link'//a */
+                               'container'    => 'div',//wrap
+                               'container_class'  => 'footer-menu',//wrap class
+                               'add_a_class' => 'btn btn-link',//class for a custom in function.php
                           ) );
                      ?>
-                    
-                    <!-- <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Privacy Policy</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Career</a> -->
-                    
-                    
                 </div>
                 <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
-                    <h5 class="text-white mb-4"><?php echo $heading2; ?></h5>
-                    
+                    <h5 class="text-white mb-4"><?php echo get_option("footer_menu_2_heading") ?></h5>
                     <?php
                           wp_nav_menu( array(
                                'theme_location'  => 'menu-footer2',//location in functions
-                               'container'    => 'div',//nav
-                               'container_class'  => 'footer-menu',//nav
-                                'add_a_class'     => 'btn btn-link',
-                               //'menu_class'    => 'menu__list',//ul
-                               //additional add in functions php
-                               /* 'list_item_class'   => 'menu__item',//li
-                               'link_class'        => 'menu__link'//a */
+                               'container'    => 'div',//wrap
+                               'container_class'  => 'footer-menu',//wrap class
+                               'add_a_class'     => 'btn btn-link',//class for a custom in function.php
                           ) );
                      ?>
-                     
-                   <!--  <a class="btn btn-link" href="">Robotic Automation</a>
-                    <a class="btn btn-link" href="">Machine learning</a>
-                    <a class="btn btn-link" href="">Predictive Analysis</a>
-                    <a class="btn btn-link" href="">Data Science</a>
-                    <a class="btn btn-link" href="">Robot Technology</a> -->
                 </div>
             </div>
         </div>
@@ -82,7 +52,7 @@ $heading2 = get_field('footer_menu2_title');
                 <div class="row">
                 
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        <?php echo get_option('footer_copyright') ?>
 
                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                         
@@ -92,23 +62,13 @@ $heading2 = get_field('footer_menu2_title');
                     
                     <div class="col-md-6 text-center text-md-end">
                         <!-- <div class="footer-menu"> -->
-                        	 <?php
-                              wp_nav_menu( array(
-                               'theme_location'  => 'menu-bottom',//location in functions
-                               'container'    => 'div',//nav
-                               'container_class'  => 'bottom-menu',//nav
-                               //'menu_class'    => 'menu__list',//ul
-                               //additional add in functions php
-                               //'list_item_class'   => 'menu__item',//li
-                               //'link_class'        => 'menu__link'//a
-                               
-                              ) );
-                             ?>
-                            <!-- <a href="">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FAQs</a> -->
-                        <!-- </div> -->
+                    	 <?php
+                          wp_nav_menu( array(
+                           'theme_location'  => 'menu-bottom',//location in functions
+                           'container'    => 'div',//wrap
+                           'container_class'  => 'bottom-menu',//wrap class                           
+                          ) );
+                         ?>
                     </div>
                     
                 </div>
@@ -117,10 +77,8 @@ $heading2 = get_field('footer_menu2_title');
     </div>
     <!-- Footer End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
-
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>

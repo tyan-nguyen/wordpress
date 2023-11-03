@@ -10,40 +10,24 @@
  */
 
 $menuLocations = get_nav_menu_locations(); // Get our nav locations (set in our theme, usually functions.php)
-// This returns an array of menu locations ([LOCATION_NAME] = MENU_ID);
-
 $menuID = $menuLocations['menu-main']; // Get the *primary* menu ID
-
 $primaryNav = wp_get_nav_menu_items($menuID); // Get the array of wp objects, the nav items for our queried location.
-
-//var_dump($primaryNav);
-
-//echo array_count_values(array_column($primaryNav, 'menu_item_parent'))['67']; // outputs: 2
-
-//echo array_count_values(array_map('intval', array_column($primaryNav, 'menu_item_parent')))['67'];
-
-function searchArr($array, $key, $value)
+/* search submenu by parent */
+function searchSubMenu($array, $key, $value)
 {
-    $results = array();
-    
+    $results = array();  
     if (is_array($array)) {
         foreach ($array as $arrItem) {            
             if (isset($arrItem->$key) && $arrItem->$key == $value) {
                 $results[] = $arrItem;
             }
-            
-            /* foreach ($array as $subarray) {
-                $results = array_merge($results, $arrItem);
-            } */
         }
     }
-    
     return $results;
 }
 
-//var_dump(searchArr($primaryNav, 'menu_item_parent', '68'));
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -104,31 +88,12 @@ function searchArr($array, $key, $value)
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                    	<?php /* ?>
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Services</a>
-                        <a href="project.html" class="nav-item nav-link">Projects</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" class="dropdown-item">Features</a>
-                                <!-- <a href="team.html" class="dropdown-item active">Our Team</a>-->
-                                <a href="team.html" class="dropdown-item">Our Team</a>
-                                <a href="faq.html" class="dropdown-item">FAQs</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <?php */ ?>
-                        
+                    <div class="navbar-nav ms-auto">                        
                         <?php 
                         //just use for 1 level subitem
                         foreach ($primaryNav as $menuItem){
                             if($menuItem->menu_item_parent == '0'):
-                            $listChild = searchArr($primaryNav, 'menu_item_parent', $menuItem->object_id);
+                            $listChild = searchSubMenu($primaryNav, 'menu_item_parent', $menuItem->object_id);
                             if($listChild == null){
                         ?>
                         <a href="<?= $menuItem->url ?>" class="nav-item nav-link"><?= $menuItem->title ?></a>
@@ -160,9 +125,6 @@ function searchArr($array, $key, $value)
     </div>
     <!-- Navbar End -->
 
-
-   
-    
     <!-- Full Screen Search Start -->
     <div class="modal fade" id="searchModal" tabindex="-1">
         <div class="modal-dialog modal-fullscreen">

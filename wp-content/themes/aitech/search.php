@@ -1,8 +1,7 @@
 <?php
-/* Custom search form */
+    /* Custom search form */
+    get_header();
 ?>
-<?php get_header() ?>
-
 
  <!-- Hero Start -->
 <div class="container-fluid pt-5 bg-primary hero-header">
@@ -26,38 +25,12 @@
 <!-- Hero End -->
     
 <?php
-global $wp_query;
+/* wp_reset_query();
+global $wp_query; */
 $total_results = $wp_query->found_posts;
 
 //echo $total_results;
 ?>
-
-
-<?php
-/*$s=get_search_query();
-$args = array(
-                's' =>$s
-            );
-    // The Query
-$the_query = new WP_Query( $args );
-if ( $the_query->have_posts() ) {
-        _e("<h2 style='font-weight:bold;color:#000'>Search Results for: ".get_query_var('s')."</h2>");
-        while ( $the_query->have_posts() ) {
-           $the_query->the_post();
-                 ?>
-                    <li>
-                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                    </li>
-                 <?php
-        }
-    }else{
-?>
-        <h2 style='font-weight:bold;color:#000'>Nothing Found</h2>
-        <div class="alert alert-info">
-          <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
-        </div>
-<?php } */ ?>
-
 <!-- Case Start -->
 <div class="container-fluid bg-light py-5">
     <div class="container py-5">
@@ -87,7 +60,6 @@ if ( $the_query->have_posts() ) {
                 }
                 ?>
                     
-                    
               <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
                 <div class="case-item position-relative overflow-hidden rounded mb-2">
                     <!-- <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/project-1.jpg" alt="">-->
@@ -113,45 +85,7 @@ if ( $the_query->have_posts() ) {
                     <a class="btn btn-primary rounded-pill py-3 px-5" href="<?php echo esc_url( home_url( '/' ) ); ?>">Ghé thăm trang chủ</a>
                 </div>
             
-        
         <?php } ?>
-        
-        
-            <!-- <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                <div class="case-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/project-1.jpg" alt="">
-                    <a class="case-overlay text-decoration-none" href="">
-                        <small>Robotic Automation</small>
-                        <h5 class="lh-base text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita
-                        </h5>
-                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                <div class="case-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/project-2.jpg" alt="">
-                    <a class="case-overlay text-decoration-none" href="">
-                        <small>Machine learning</small>
-                        <h5 class="lh-base text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita
-                        </h5>
-                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 wow fadeIn" data-wow-delay="0.7s">
-                <div class="case-item position-relative overflow-hidden rounded mb-2">
-                    <img class="img-fluid" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/project-3.jpg" alt="">
-                    <a class="case-overlay text-decoration-none" href="">
-                        <small>Predictive Analysis</small>
-                        <h5 class="lh-base text-white mb-3">Lorem elitr magna stet eirmod labore amet labore clita
-                        </h5>
-                        <span class="btn btn-square btn-primary"><i class="fa fa-arrow-right"></i></span>
-                    </a>
-                </div>
-            </div>-->
-            
-            
             
         </div>
     </div>
