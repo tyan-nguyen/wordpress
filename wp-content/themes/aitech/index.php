@@ -1,3 +1,8 @@
+<?php
+/*
+ Template Name: Default
+ */
+?>
 <?php get_header() ?>
 
  <!-- Hero Start -->
@@ -22,6 +27,10 @@
 </div>
 <!-- Hero End -->
 
-<div style="height:500px"></div>
+<?php get_template_part('_team') ?>
+
+<?php get_template_part('_subscribe') ?>
+
+<!-- <div style="height:500px"></div> -->
 
 <?php get_footer() ?>
